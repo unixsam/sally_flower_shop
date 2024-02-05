@@ -1,0 +1,61 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_sally_flower_list">
+			<field name="name">Flowers List</field>
+			<field name="model">sally.flower</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"  />
+					<field name="scientific_name" />
+					<field name="season_start" />
+					<field name="season_end" />
+					<field name="Irrigation_frequency" />
+					<field name="Irrigation_amount" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_sally_flower_form">
+			<field name="name">Flowers Form</field>
+			<field name="model">sally.flower</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_title">
+							<field name="name" placeholder="Common Name" />
+						</div>
+						<group>
+							<field name="scientific_name" string="Scientific Name" />
+						</group>
+						<group>
+							<group>
+								<field name="season_start" />
+							</group>
+							<group>
+								<field name="season_end" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="Irrigation_frequency" />
+							</group>
+							<group>
+								<field name="Irrigation_amount" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- actions opening views on models -->
+		<record model="ir.actions.act_window" id="sally_flower_action_window">
+			<field name="name">Sally Flower Window</field>
+			<field name="res_model">sally.flower</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Top menu item -->
+		<menuitem name="Flowers" id="sally_menu_root" groups="base.group_user" web_icon="sally,static/description/icon.png" />
+		<!-- menu categories -->
+		<menuitem name="Flowers" id="sally_flower" parent="sally_menu_root" groups="base.group_user" action="sally_flower_action_window" />
+	</data>
+</odoo>

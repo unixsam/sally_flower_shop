@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <record model="ir.actions.server" id="action_water_flower_view_tree">
+            <field name="name">water flower</field>
+            <field name="model_id" ref="stock.model_stock_lot"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                    records.action_water_flower()
+            </field>
+            <field name="binding_model_id" ref="stock.model_stock_lot"/>
+            <field name="binding_view_types">list</field>
+        </record>
+</odoo>

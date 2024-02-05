@@ -1,0 +1,39 @@
+<odoo>
+	<data>
+        <record id="sally_flower_product_inherit" model="ir.ui.view">
+            <field name="name">product.product.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="is_flower" />
+                    <field name="flower_id" />
+                </field>
+            </field>
+        </record>
+
+        <record id="sally_flower_order_line_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"  />
+            <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+                <attribute name="domain">[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=',
+                    parent.company_id), ('is_flower', '=', True)]
+                </attribute>
+            </xpath>
+        </field>
+        </record>
+
+        <record id="action_flower_product" model="ir.actions.act_window">
+            <field name="name">Flower Products</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="context" eval="{'default_is_flower': True}"/>
+            <field name="domain" eval="[('is_flower', '=', True)]"/>
+        </record>
+
+        <menuitem id="flower_product_menu" action="action_flower_product" parent="sale.product_menu_catalog"
+              sequence="2"/>
+    </data>
+</odoo>
