@@ -61,7 +61,7 @@
                                 <td name="td_name"><center><span t-field="flower.season_start"/></center></td>
                                 <td name="td_name"><center><span t-field="flower.season_end"/></center></td>
                                 <td name="td_name"><center><span t-field="flower.Irrigation_frequency"/></center></td>
-                                <td name="td_name"><center><span t-field="flower.Irrigation_amount_ml"/></center></td>
+                                <td name="td_name"><center><span t-field="flower.Irrigation_amount"/></center></td>
                             </tr>
                         </tbody>
                     </table>

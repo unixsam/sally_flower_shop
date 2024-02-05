@@ -24,7 +24,7 @@
                 <button class="oe_stat_button"
                         name="action_open_Irrigation_times"
                         icon="fa-shower"
-                        invisible="is_flower == False"
+                        invisible="not is_flower"
                         type="object">
                     <div class="o_field_widget o_stat_info">
                         <span class="o_stat_text text-wrap">Irrigation Times</span>
